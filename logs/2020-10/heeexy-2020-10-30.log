@@ -1,0 +1,6 @@
+2020-10-30 11:05:49.063 INFO  --- [StartupInfoLogger.java:55][restartedMain] - Starting MyApplication on ST-201910291029 with PID 10256 (C:\Users\JAVA\IdeaProjects\order\back\target\classes started by uid in C:\Users\JAVA\IdeaProjects\order)
+2020-10-30 11:05:49.067 INFO  --- [SpringApplication.java:651][restartedMain] - No active profile set, falling back to default profiles: default
+2020-10-30 11:05:52.697 INFO  --- [StartupInfoLogger.java:61][restartedMain] - Started MyApplication in 4.858 seconds (JVM running for 6.429)
+2020-10-30 11:13:23.770 INFO  --- [StartupInfoLogger.java:55][restartedMain] - Starting MyApplication on ST-201910291029 with PID 10256 (C:\Users\JAVA\IdeaProjects\order\back\target\classes started by uid in C:\Users\JAVA\IdeaProjects\order)
+2020-10-30 11:13:23.770 INFO  --- [SpringApplication.java:651][restartedMain] - No active profile set, falling back to default profiles: default
+2020-10-30 11:13:24.761 INFO  --- [StartupInfoLogger.java:61][restartedMain] - Started MyApplication in 1.047 seconds (JVM running for 458.903)
