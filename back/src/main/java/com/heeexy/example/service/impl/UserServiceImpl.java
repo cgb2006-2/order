@@ -173,4 +173,11 @@ public class UserServiceImpl implements UserService {
 		userDao.removeRoleAllPermission(jsonObject);
 		return CommonUtil.successJson();
 	}
+
+	@Override
+	public JSONObject findCourierById(JSONObject requestJson) {
+
+		return userDao.findCourierById(requestJson);
+	}
+
 }
