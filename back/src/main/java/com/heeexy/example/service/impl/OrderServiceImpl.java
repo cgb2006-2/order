@@ -6,7 +6,10 @@ import com.heeexy.example.service.OrderService;
 import com.heeexy.example.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,8 +19,9 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Override
-    public JSONObject listAllOrder() {
+    public JSONObject listAllOrder( ) {
         List<JSONObject> list = orderDao.listOrder();
+        System.out.println(list);
         return CommonUtil.successPage(list);
     }
 }

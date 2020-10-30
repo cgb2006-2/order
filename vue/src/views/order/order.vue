@@ -10,11 +10,6 @@
     </div>
     <el-table :data="list" v-loading.body="listLoading" element-loading-text="拼命加载中" border fit
               highlight-current-row>
-      <el-table-column align="center" label="序号" width="80">
-        <template slot-scope="scope">
-          <span v-text="getIndex(scope.$index)"> </span>
-        </template>
-      </el-table-column>
       <el-table-column align="center" prop="orderId" label="订单号" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="deliverymanId" label="配送员ID" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="userId" label="客户ID" style="width: 60px;"></el-table-column>
@@ -38,10 +33,20 @@
     },
     created() {
       this.getList();
+      
     },
     methods: {
       getList() {
-        
+        this.listLoading = true;
+        this.api({
+          url: "/order/findaAll",
+          method: "get",
+         // params: this.listQuery
+        }).then(data => {
+          this.listLoading = false;
+          this.list = data.list;
+          console.log(this.list)
+        })
       },
     }
   }

@@ -8,7 +8,7 @@ public interface OrderDao {
     /**
      * 查询订单数量
      */
-    int countOrder();
+    int countOrder( );
 
     /**
      * 查询订单列表
