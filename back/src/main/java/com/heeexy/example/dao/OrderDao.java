@@ -8,10 +8,10 @@ public interface OrderDao {
     /**
      * 查询订单数量
      */
-    int countOrder(JSONObject jsonObject);
+    int countOrder();
 
     /**
      * 查询订单列表
      */
-    List<JSONObject> listOrder(JSONObject jsonObject);
+    List<JSONObject> listOrder();
 }

@@ -6,5 +6,5 @@ public interface OrderService {
     /**
      * 订单列表
      */
-    JSONObject listOrder(JSONObject jsonObject);
+    JSONObject listAllOrder();
 }
