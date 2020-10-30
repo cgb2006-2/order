@@ -175,9 +175,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public JSONObject findCourierById(JSONObject requestJson) {
-
-		return userDao.findCourierById(requestJson);
+	public JSONObject findCourierById() {
+		List<JSONObject> courierList=userDao.findCourierById();
+		return CommonUtil.successPage(courierList);
 	}
 
 }
