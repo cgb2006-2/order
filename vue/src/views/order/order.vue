@@ -13,7 +13,7 @@
       <el-table-column align="center" prop="orderId" label="订单号" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="deliverymanId" label="配送员ID" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="userId" label="客户ID" style="width: 60px;"></el-table-column>
-      <el-table-column align="center" prop="totalPrice" label="总价" style="width: 60px;"></el-table-column>
+      <el-table-column align="center" prop="totalPrice" label="总价(￥)" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="remark" label="支付方式" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="payMethod" label="订单状态" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="createTime" label="订单创建时间" style="width: 60px;"></el-table-column>
