@@ -14,4 +14,6 @@ public interface OrderDao {
      * 查询订单列表
      */
     List<JSONObject> listOrder();
+
+    List<JSONObject> courierFindOrderId();
 }
