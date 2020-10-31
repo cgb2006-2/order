@@ -30,3 +30,58 @@ url:176.148.8.77:3306
 用户:root
 
 密码:root
+
+
+自动修改工作状态:
+@Service
+public class ActivityServiceImpl implements ActivityService {
+
+	@Autowired
+	private ActivityDao activityDao;
+	
+	@Override
+	public int saveObject(Activity entity) {
+		// TODO Auto-generated method stub
+		//System.out.println("entity.insert.before.id="+entity.getId());
+		int rows=activityDao.insertObject(entity);
+		//System.out.println("entity.insert.after.id="+entity.getId());
+		//希望时间到了(endTime)自动修改活动状态
+		//解决方案:基于任务调度去实现(任务调度-基于时间的设计自动执行任务)
+		//代码方案:
+		//1)借助Java中的Timer对象去实现
+		Timer timer=new Timer();//此对象创建时会在底层启动一个线程,通过此线程对时间进行监控
+		//2)执行任务(任务类型为TimerTask类型)
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				//在此位置修改活动的状态信息
+				System.out.println("开始执行活动状态的修改操作");
+				activityDao.updateState(entity.getId());
+				timer.cancel();
+			}
+		}, entity.getEndTime());
+		//2)借助Java线程池中的任务调度对象(ScheduledExecutorService )去实现
+		//3)借助第三方框架去实现(quartz)
+		return rows;
+	
+	}
+   
+   时间拦截器::
+   
+   public class TimeAccessInterceptor implements HandlerInterceptor {
+    /**此方法在@Controller描述的对象方法执行之前执行
+     * @return true表示请求放行,false表示请求到此结束.
+     * */
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		System.out.println("==preHandler==");
+		//获取当前时间(LocalDateTime为jdk8中的一个日历对象)
+		LocalDateTime localDateTime=LocalDateTime.now();
+		//获取当前时间对应的小时
+		int hour=localDateTime.getHour();
+		System.out.println("hour="+hour);
+		if(hour<=6||hour>=23) 
+			throw new ServiceException("请在9:00~18:00之间访问");
+		return true;//true表示要执行后续拦截器方法或者目标@Controller对象方法
+	}
