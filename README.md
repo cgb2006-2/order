@@ -6,7 +6,7 @@
 
 1. 创建配送员角色,分配角色权限;
 
-**配送员 **登录后, 只显示**"我的信息"**,**"接的订单"**功能模块: 可以的话,**"我的信息"**页面是完整网页,**"接的订单"**使用模态框.
+**配送员 ** 登录后, 只显示 **"我的信息"** , **"订单管理"** 功能模块: 可以的话, **"我的信息"** 页面是完整网页 , **"订单管理"**使用模态框.
 
 1. 要求完成前端回显配送员信息表,订单附表
 2. 根据当前距离计算配送费
@@ -65,9 +65,9 @@ public class ActivityServiceImpl implements ActivityService {
 		return rows;
 	
 	}
-   
+
    时间拦截器::
-   
+
    public class TimeAccessInterceptor implements HandlerInterceptor {
     /**此方法在@Controller描述的对象方法执行之前执行
      * @return true表示请求放行,false表示请求到此结束.
