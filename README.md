@@ -32,7 +32,7 @@ url:176.148.8.77:3306
 密码:root
 
 
-**自动修改工作状态:
+**自动修改工作状态:**
 ```java
 @Service
 public class ActivityServiceImpl implements ActivityService {
@@ -68,7 +68,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 ```
 
-**时间拦截器::
+**时间拦截器:**
 ```java
    public class TimeAccessInterceptor implements HandlerInterceptor {
     /**此方法在@Controller描述的对象方法执行之前执行
