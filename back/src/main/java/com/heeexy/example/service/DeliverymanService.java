@@ -6,4 +6,6 @@ public interface DeliverymanService {
     Integer getDelId();
 
     JSONObject getInfo();
+
+    JSONObject updatePassword(JSONObject jsonObject);
 }
