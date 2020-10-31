@@ -20,4 +20,5 @@ public class OrderServiceImpl implements OrderService {
         List<JSONObject> list = orderDao.listOrder();
         return CommonUtil.successPage(list);
     }
+
 }
