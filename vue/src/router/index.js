@@ -33,12 +33,20 @@ export const asyncRouterMap = [
     name: '功能模块',
     meta: {title: '功能模块', icon: 'tree'},
     children: [
+
       {
         path: 'article',
         name: '文章',
         component: _import('article/article'),
         meta: {title: '文章', icon: 'example'},
         menu: 'article'
+      }, 
+      {
+        path: 'order',
+        name: '订单',
+        component: _import('order/order'),
+        meta: {title: '订单页面', icon: 'example'},
+        menu: 'order'
       }, 
       {
         path: 'orderTime',

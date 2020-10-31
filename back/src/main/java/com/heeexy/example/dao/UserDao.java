@@ -91,5 +91,5 @@ public interface UserDao {
 	 */
 	int removeRoleAllPermission(JSONObject jsonObject);
 
-	JSONObject findCourierById(JSONObject requestJson);
+	List<JSONObject> findCourierById();
 }

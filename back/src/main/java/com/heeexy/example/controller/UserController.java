@@ -99,7 +99,7 @@ public class UserController {
 	}
 
 	@PostMapping("/profile")
-	public JSONObject findCourierById(@RequestBody JSONObject requestJson){
-		return userService.findCourierById(requestJson);
+	public JSONObject findCourierById(){
+		return userService.findCourierById();
 	}
 }
