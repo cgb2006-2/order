@@ -7,5 +7,5 @@ public interface DeliverymanService {
 
     JSONObject getInfo();
 
-    JSONObject updatePassword(JSONObject jsonObject);
+    int updatePassword(String jsonObject);
 }

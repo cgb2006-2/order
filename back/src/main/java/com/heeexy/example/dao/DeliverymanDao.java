@@ -7,5 +7,5 @@ public interface DeliverymanDao {
 
     JSONObject getInfoById(Integer id );
 
-    JSONObject updatePassword(JSONObject jsonObject);
+    int updatePassword(Integer id, String password);
 }

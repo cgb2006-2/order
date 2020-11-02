@@ -92,4 +92,6 @@ public interface UserDao {
 	int removeRoleAllPermission(JSONObject jsonObject);
 
 	List<JSONObject> findCourierById();
+
+	int updatePassword(String username,String password);
 }

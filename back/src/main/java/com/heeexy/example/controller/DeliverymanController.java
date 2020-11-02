@@ -5,12 +5,10 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.heeexy.example.service.DeliverymanService;
 import com.heeexy.example.service.OrderService;
 import com.heeexy.example.util.CommonUtil;
+import com.heeexy.example.util.constants.ErrorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 配送员个人页面信息
@@ -35,9 +33,11 @@ public class DeliverymanController {
     /**
      *  修改个人密码,并返回提示信息
      */
-    @GetMapping("/updatePassword")
-    public JSONObject updatePassword(JSONObject jsonObject){
-        deliverymanService.updatePassword(jsonObject);
+    @PostMapping("/updatePassword")
+    public JSONObject updatePassword(String password){
+        if (password==null)
+            return CommonUtil.errorJson(ErrorEnum.E_20202);
+        deliverymanService.updatePassword(password);
         return CommonUtil.successJson("修改成功");
     }
 
@@ -46,7 +46,6 @@ public class DeliverymanController {
      */
     @PostMapping("/doFindOrderId")
     public JSONObject doFindOrderId(){
-
         return orderService.courierFindOrderId();
     }
 

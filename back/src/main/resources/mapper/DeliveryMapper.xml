@@ -14,4 +14,10 @@
         FROM ps_deliveryman
         WHERE deliveryman_id=#{id}
     </select>
+
+    <update id="updatePassword">
+        UPDATE ps_deliveryman
+        SET password=#{password}
+        WHERE deliveryman_id=#{id}
+    </update>
 </mapper>

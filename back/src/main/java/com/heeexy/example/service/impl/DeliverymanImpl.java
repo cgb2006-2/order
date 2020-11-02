@@ -1,12 +1,11 @@
 package com.heeexy.example.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.heeexy.example.dao.DeliverymanDao;
+import com.heeexy.example.dao.UserDao;
 import com.heeexy.example.service.DeliverymanService;
 import com.heeexy.example.util.CommonUtil;
 import com.heeexy.example.util.constants.Constants;
-import com.heeexy.example.util.constants.ErrorEnum;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,21 @@ public class DeliverymanImpl implements DeliverymanService {
     @Autowired
     private DeliverymanDao deliverymanDao;
 
+    @Autowired
+    private UserDao userDao;
+
     @Override
     public Integer getDelId() {
+        String username=getDelName();
+        Integer id = deliverymanDao.getId(username);
+        return id;
+    }
+
+    private String getDelName() {
         Session session = SecurityUtils.getSubject().getSession();
         JSONObject userInfo = (JSONObject) session.getAttribute(Constants.SESSION_USER_INFO);
         String username = userInfo.getString("username");
-        System.out.println(username);
-        Integer id = deliverymanDao.getId(username);
-        return id;
+        return username;
     }
 
     @Override
@@ -41,12 +47,13 @@ public class DeliverymanImpl implements DeliverymanService {
     /**
      * TODO mapper没写
      *  修改个人登录密码
+     * @param password
+     * @return
      */
     @Override
-    public JSONObject updatePassword(JSONObject jsonObject) {
-        if (jsonObject==null)
-            return CommonUtil.errorJson(ErrorEnum.E_20202);
-         JSONObject rows=deliverymanDao.updatePassword(jsonObject);
+    public int updatePassword(String password) {
+        int rows=deliverymanDao.updatePassword(getDelId(),password);
+        int row=userDao.updatePassword(getDelName(), password);
         return rows;
     }
 }
