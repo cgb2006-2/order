@@ -9,6 +9,7 @@ import com.heeexy.example.util.InfoUtil;
 import com.heeexy.example.util.constants.ErrorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -34,6 +35,7 @@ public class DeliverymanController {
     /**
      *  修改个人密码,并返回提示信息
      */
+    @Transactional
     @PostMapping("/updatePassword")
     public JSONObject updatePassword(String password){
         if (password==null)

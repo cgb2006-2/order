@@ -11,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class DeliverymanImpl implements DeliverymanService {
      *  修改个人登录密码,更新总用户表和配送员表
      */
     @Override
+    @Transactional
     public void updatePassword(String password) {
         deliverymanDao.updatePassword(InfoUtil.getUserId(),password);
         userDao.updatePassword(InfoUtil.getUserId(), password);

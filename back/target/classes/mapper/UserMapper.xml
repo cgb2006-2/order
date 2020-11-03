@@ -6,7 +6,7 @@
     <update id="updatePassword">
         update sys_user
         set password=#{password}
-        where username=#{username}
+        where id=#{id}
     </update>
 
     <select id="findCourierById" resultType="com.alibaba.fastjson.JSONObject">

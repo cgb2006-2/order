@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface DeliverymanService {
     JSONObject getInfoById(Integer id);
-    void updatePassword(String jsonObject);
+    void updatePassword(String password);
 }
