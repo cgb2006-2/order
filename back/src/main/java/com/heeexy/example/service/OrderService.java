@@ -9,4 +9,6 @@ public interface OrderService {
     JSONObject listAllOrder();
 
     JSONObject FindOrderById(Integer id);
+
+    JSONObject updateOrderState(String orderId, Integer state);
 }

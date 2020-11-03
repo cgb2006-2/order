@@ -38,4 +38,12 @@
         WHERE deliveryman_id=#{id}
     </select>
 
+    <update id="updateOrderState">
+        update
+        ps_order
+        set
+        state=#{state}
+        where order_id = #{orderId}
+    </update>
+
 </mapper>
