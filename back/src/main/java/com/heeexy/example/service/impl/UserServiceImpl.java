@@ -174,10 +174,4 @@ public class UserServiceImpl implements UserService {
 		return CommonUtil.successJson();
 	}
 
-	@Override
-	public JSONObject findCourierById() {
-		List<JSONObject> courierList=userDao.findCourierById();
-		return CommonUtil.successPage(courierList);
-	}
-
 }

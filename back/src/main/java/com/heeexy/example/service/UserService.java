@@ -54,5 +54,4 @@ public interface UserService {
 	 */
 	JSONObject deleteRole(JSONObject jsonObject);
 
-	JSONObject findCourierById();
 }

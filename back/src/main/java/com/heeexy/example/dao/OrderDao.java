@@ -11,9 +11,12 @@ public interface OrderDao {
     int countOrder( );
 
     /**
-     * 查询订单列表
+     * 管理员查询所有订单列表
      */
     List<JSONObject> listOrder();
 
-    List<JSONObject> courierFindOrderId();
+    /**
+     * 配送员查询自己的订单列表
+     */
+    List<JSONObject> findOrderById(Integer id);
 }

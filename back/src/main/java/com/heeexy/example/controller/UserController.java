@@ -98,8 +98,9 @@ public class UserController {
 		return userService.deleteRole(requestJson);
 	}
 
-	@PostMapping("/profile")
-	public JSONObject findCourierById(){
-		return userService.findCourierById();
-	}
+//	@RequiresPermissions("user:deliveryman")
+//	@PostMapping("/profile")
+//	public JSONObject findCourierById(){
+//		return userService.findCourierById();
+//	}
 }

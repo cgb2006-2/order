@@ -8,5 +8,5 @@ public interface OrderService {
      */
     JSONObject listAllOrder();
 
-    JSONObject courierFindOrderId();
+    JSONObject FindOrderById(Integer id);
 }

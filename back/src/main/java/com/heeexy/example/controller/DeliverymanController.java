@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.heeexy.example.service.DeliverymanService;
 import com.heeexy.example.service.OrderService;
 import com.heeexy.example.util.CommonUtil;
+import com.heeexy.example.util.InfoUtil;
 import com.heeexy.example.util.constants.ErrorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -24,10 +25,10 @@ public class DeliverymanController {
     /**
      * 查询当前登录用户的信息
      */
-    @PostMapping("/getInfo")
+    @GetMapping("/getInfo")
     public JSONObject getInfo() {
-        deliverymanService.getDelId();
-        return deliverymanService.getInfo();
+        System.out.println(InfoUtil.getUserId());
+        return deliverymanService.getInfoById(InfoUtil.getUserId());
     }
 
     /**
@@ -44,9 +45,9 @@ public class DeliverymanController {
     /**
      *  查询个人订单信息
      */
-    @PostMapping("/doFindOrderId")
-    public JSONObject doFindOrderId(){
-        return orderService.courierFindOrderId();
+    @GetMapping("/doFindOrderById")
+    public JSONObject doFindOrderById(){
+        return orderService.FindOrderById(InfoUtil.getUserId());
     }
 
 

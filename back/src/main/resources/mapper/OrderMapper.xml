@@ -20,8 +20,22 @@
         state                                   state,
         DATE_FORMAT(create_time, '%Y.%m.%d %T') createTime,
         DATE_FORMAT(update_time, '%Y.%m.%d %T') updateTime
-
         FROM ps_order
+    </select>
+
+    <select id="findOrderById" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        order_id                                orderId,
+        deliveryman_id                          deliverymanId,
+        user_id                                 userId,
+        total_price                             totalPrice,
+        remark                                  remark,
+        pay_method                              payMethod,
+        state                                   state,
+        DATE_FORMAT(create_time, '%Y.%m.%d %T') createTime,
+        DATE_FORMAT(update_time, '%Y.%m.%d %T') updateTime
+        FROM ps_order
+        WHERE deliveryman_id=#{id}
     </select>
 
 </mapper>

@@ -93,5 +93,8 @@ public interface UserDao {
 
 	List<JSONObject> findCourierById();
 
-	int updatePassword(String username,String password);
+	/**
+	 *	根据id更改密码
+	 */
+	int updatePassword(Integer id,String password);
 }

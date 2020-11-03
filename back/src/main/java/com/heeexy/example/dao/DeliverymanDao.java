@@ -2,10 +2,12 @@ package com.heeexy.example.dao;
 
 import com.alibaba.fastjson.JSONObject;
 
-public interface DeliverymanDao {
-    Integer getId(String username);
+import java.util.List;
 
-    JSONObject getInfoById(Integer id );
+public interface DeliverymanDao {
 
     int updatePassword(Integer id, String password);
+
+    List<JSONObject> getInfoById(Integer id);
+
 }

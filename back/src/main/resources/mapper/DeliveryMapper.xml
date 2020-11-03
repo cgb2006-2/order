@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.heeexy.example.dao.DeliverymanDao">
-    <select id="getId" resultType="Integer">
-        SELECT deliveryman_id
-        FROM ps_deliveryman
-        WHERE name=#{username}
-    </select>
+    <update id="updatePassword">
+        UPDATE ps_deliveryman
+        SET password=#{password}
+        WHERE deliveryman_id=#{id}
+    </update>
 
     <select id="getInfoById" resultType="com.alibaba.fastjson.JSONObject">
         SELECT
@@ -14,10 +14,4 @@
         FROM ps_deliveryman
         WHERE deliveryman_id=#{id}
     </select>
-
-    <update id="updatePassword">
-        UPDATE ps_deliveryman
-        SET password=#{password}
-        WHERE deliveryman_id=#{id}
-    </update>
 </mapper>
