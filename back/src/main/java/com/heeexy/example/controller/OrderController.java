@@ -4,9 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.heeexy.example.service.OrderService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 
 @RestController
@@ -19,5 +19,11 @@ public class OrderController {
     @GetMapping("/findAll")
     public JSONObject listOrder() {
         return orderService.listAllOrder();
+    }
+
+    @PostMapping("/updateOrderState")
+    public JSONObject updateOrderState(String orderId,Integer state){
+
+        return orderService.updateOrderState(orderId,state);
     }
 }

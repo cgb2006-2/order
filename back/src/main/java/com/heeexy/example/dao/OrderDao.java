@@ -19,4 +19,6 @@ public interface OrderDao {
      * 配送员查询自己的订单列表
      */
     List<JSONObject> findOrderById(Integer id);
+
+    void updateOrderState(String orderId, Integer state);
 }
