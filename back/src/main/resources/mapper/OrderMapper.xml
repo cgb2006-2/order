@@ -37,5 +37,11 @@
         FROM ps_order
         WHERE deliveryman_id=#{id}
     </select>
-
+    <update id="updateOrderState" parameterType="com.alibaba.fastjson.JSONObject">
+        update
+            ps_order
+        set
+            state=#{state}
+        where order_id = #{orderId}
+    </update>
 </mapper>

@@ -6,6 +6,7 @@ import com.heeexy.example.service.OrderService;
 import com.heeexy.example.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +29,13 @@ public class OrderServiceImpl implements OrderService {
     public JSONObject FindOrderById(Integer id) {
         List<JSONObject> list= orderDao.findOrderById(id);
         return CommonUtil.successPage(list);
+    }
+
+    @Transactional
+    @Override
+    public JSONObject updateOrderState(String orderId, Integer state) {
+        orderDao.updateOrderState(orderId,state);
+        return CommonUtil.successJson();
     }
 
 }
