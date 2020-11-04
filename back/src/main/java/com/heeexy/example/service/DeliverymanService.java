@@ -7,4 +7,5 @@ import java.util.List;
 public interface DeliverymanService {
     JSONObject getInfoById(Integer id);
     void updatePassword(String password);
+    JSONObject findAll();
 }

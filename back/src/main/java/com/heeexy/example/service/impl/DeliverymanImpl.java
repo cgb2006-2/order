@@ -42,4 +42,10 @@ public class DeliverymanImpl implements DeliverymanService {
         userDao.updatePassword(InfoUtil.getUserId(), password);
     }
 
+    @Override
+    public JSONObject findAll() {
+        List<JSONObject> list = deliverymanDao.findAll();
+        return CommonUtil.successPage(list);
+    }
+
 }

@@ -14,4 +14,9 @@
         FROM ps_deliveryman
         WHERE deliveryman_id=#{id}
     </select>
+    <select id="findAll" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        *
+        FROM ps_deliveryman
+    </select>
 </mapper>

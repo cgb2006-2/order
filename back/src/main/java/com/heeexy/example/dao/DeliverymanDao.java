@@ -10,4 +10,6 @@ public interface DeliverymanDao {
 
     List<JSONObject> getInfoById(Integer id);
 
+    List<JSONObject> findAll();
+
 }
