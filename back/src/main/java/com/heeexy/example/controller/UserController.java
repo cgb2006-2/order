@@ -1,8 +1,10 @@
 package com.heeexy.example.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.heeexy.example.service.DeliverymanService;
 import com.heeexy.example.service.UserService;
 import com.heeexy.example.util.CommonUtil;
+import com.heeexy.example.util.InfoUtil;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,18 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private DeliverymanService deliverymanService;
+
+	/**
+	 * 查询当前登录用户的信息
+	 */
+	@GetMapping("/getInfo")
+	@RequiresPermissions("user:deliveryman")
+	public JSONObject getInfo() {
+		return deliverymanService.getInfoById(InfoUtil.getUserId());
+	}
 
 	/**
 	 * 查询用户列表

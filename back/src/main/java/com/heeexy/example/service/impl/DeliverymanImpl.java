@@ -27,7 +27,11 @@ public class DeliverymanImpl implements DeliverymanService {
 
     @Override
     public JSONObject getInfoById(Integer id) {
-        List<JSONObject> list = deliverymanDao.getInfoById(id);
+        List<JSONObject> list = null;
+        if(id.equals(10003))
+            list=deliverymanDao.getAllDeliveryman();
+        else
+            list = deliverymanDao.getInfoById(id);
         return CommonUtil.successPage(list);
     }
 
