@@ -5,7 +5,7 @@
 
     <update id="updatePassword">
         update sys_user
-        set password=#{password}
+        set password=#{password},update_time=now()
         where id=#{id}
     </update>
 
