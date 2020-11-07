@@ -25,13 +25,18 @@ public class DeliverymanImpl implements DeliverymanService {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * 查询配送员列表
+     * @param deliverymanId
+     * @return
+     */
     @Override
-    public JSONObject getInfoById(Integer id) {
+    public JSONObject getInfoById(Integer deliverymanId) {
         List<JSONObject> list = null;
-        if(id.equals(10003))
+        if(deliverymanId.equals(10003))
             list=deliverymanDao.getAllDeliveryman();
         else
-            list = deliverymanDao.getInfoById(id);
+            list = deliverymanDao.getInfoById(deliverymanId);
         return CommonUtil.successPage(list);
     }
 
@@ -43,5 +48,25 @@ public class DeliverymanImpl implements DeliverymanService {
     public void updatePassword(String password) {
         deliverymanDao.updatePassword(InfoUtil.getUserId(),password);
         userDao.updatePassword(InfoUtil.getUserId(), password);
+    }
+
+    /**
+     * 下班
+     * @return
+     */
+    @Override
+    public JSONObject logoutTime() {
+        deliverymanDao.logoutTime(0, InfoUtil.getUserId());
+        return CommonUtil.successJson();
+    }
+
+    /**
+     * 上班
+     * @return
+     */
+    @Override
+    public JSONObject logTime() {
+        deliverymanDao.logTime(1,InfoUtil.getUserId());
+        return CommonUtil.successJson();
     }
 }

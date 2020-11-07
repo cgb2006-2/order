@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface DeliverymanDao {
 
-    int updatePassword(Integer id, String password);
+    int updatePassword(Integer deliverymanId, String password);
 
-    List<JSONObject> getInfoById(Integer id);
+    List<JSONObject> getInfoById(Integer deliverymanId);
 
     List<JSONObject> getAllDeliveryman();
+
+    int logoutTime(Integer state,Integer deliverymanId);
+
+    int logTime(Integer state,Integer deliverymanId);
 }

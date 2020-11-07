@@ -2,9 +2,12 @@ package com.heeexy.example.service;
 
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.List;
-
 public interface DeliverymanService {
-    JSONObject getInfoById(Integer id);
+    JSONObject getInfoById(Integer deliverymanId);
+
     void updatePassword(String password);
+
+    JSONObject logoutTime();
+
+    JSONObject logTime();
 }

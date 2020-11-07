@@ -5,19 +5,43 @@
     <update id="updatePassword">
         UPDATE ps_deliveryman
         SET password=#{password}
-        WHERE deliveryman_id=#{id}
+        WHERE deliveryman_id=#{deliverymanId}
+    </update>
+    <update id="logoutTime">
+        UPDATE ps_deliveryman
+        SET state=#{state},updated_time=now(),logout_time=now()
+        WHERE deliveryman_id=#{deliverymanId}
+    </update>
+    <update id="logTime">
+        UPDATE ps_deliveryman
+        SET state=#{state},updated_time=now(),login_time=now()
+        WHERE deliveryman_id=#{deliverymanId}
     </update>
 
     <select id="getInfoById" resultType="com.alibaba.fastjson.JSONObject">
         SELECT
-        *
+        deliveryman_id     deliverymanId,
+        name               name,
+        phone              phone,
+        wallet             wallet,
+        state              state,
+        DATE_FORMAT(updated_time, '%Y.%m.%d %T') updatedTime,
+        DATE_FORMAT(logout_time, '%Y.%m.%d %T') logoutTime,
+        DATE_FORMAT(login_time, '%Y.%m.%d %T') loginTime
         FROM ps_deliveryman
-        WHERE deliveryman_id=#{id}
+        WHERE deliveryman_id=#{deliverymanId}
     </select>
 
     <select id="getAllDeliveryman"  resultType="com.alibaba.fastjson.JSONObject">
         SELECT
-        *
+        deliveryman_id     deliverymanId,
+        name               name,
+        phone              phone,
+        wallet             wallet,
+        state              state,
+        DATE_FORMAT(updated_time, '%Y.%m.%d %T') updatedTime,
+        DATE_FORMAT(logout_time, '%Y.%m.%d %T') logoutTime,
+        DATE_FORMAT(login_time, '%Y.%m.%d %T') loginTime
         FROM ps_deliveryman
     </select>
 </mapper>

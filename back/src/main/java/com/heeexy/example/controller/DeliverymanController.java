@@ -28,7 +28,6 @@ public class DeliverymanController {
      */
     @GetMapping("/getInfo")
     public JSONObject getInfo() {
-        System.out.println(InfoUtil.getUserId());
         return deliverymanService.getInfoById(InfoUtil.getUserId());
     }
 
@@ -52,5 +51,21 @@ public class DeliverymanController {
         return orderService.FindOrderById(InfoUtil.getUserId());
     }
 
+    /**
+     * 下班修改
+     * @return
+     */
+    @GetMapping("/logoutTime")
+    public JSONObject logoutTime(){
+        return deliverymanService.logoutTime();
+    }
 
+    /**
+     * 上班
+     * @return
+     */
+    @GetMapping("/logTime")
+    public JSONObject logTime(){
+        return deliverymanService.logTime();
+    }
 }
